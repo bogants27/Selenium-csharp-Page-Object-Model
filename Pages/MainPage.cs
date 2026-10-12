@@ -17,6 +17,8 @@ namespace AutomationPracticeNUnit.Pages
         private IWebElement linkWebForm;
         private IWebElement pageTitle;
 
+        private IWebElement linkForm;
+
         public MainPage(IWebDriver driver) { 
             this.driver = driver;
         
@@ -34,6 +36,13 @@ namespace AutomationPracticeNUnit.Pages
             pageTitle = driver.FindElement(By.XPath("/html/body/div/h1"));
 
             return pageTitle.Text;
+        }
+
+        public void goToForm()
+        {
+
+            linkForm = this.driver.FindElement(By.ClassName("nav-link"));
+            linkForm.Click();
         }
 
     }
